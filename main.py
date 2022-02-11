@@ -3,16 +3,34 @@ import discord
 from discord.ext import commands
 import time
 import json
+import colorama 
+from colorama  import Fore
+import os
 
 client = commands.Bot('>', self_bot = True)
 with open('config.json') as f:
     config = json.load(f)
     token = config.get('token')
-x = 100
+@client.event
+async def on_ready():
+    os.system("cls")
+    print(f'''{Fore.MAGENTA}
+
+
+  ██████╗██╗   ██╗██╗  ████████╗     █████╗ ██╗   ██╗████████╗ ██████╗      █████╗ ███████╗██╗  ██╗     ██████╗██╗  ██╗███████╗ ██████╗██╗  ██╗
+ ██╔════╝██║   ██║██║  ╚══██╔══╝    ██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗    ██╔══██╗██╔════╝██║ ██╔╝    ██╔════╝██║  ██║██╔════╝██╔════╝██║ ██╔╝
+ ██║     ██║   ██║██║     ██║       ███████║██║   ██║   ██║   ██║   ██║    ███████║█████╗  █████╔╝     ██║     ███████║█████╗  ██║     █████╔╝ 
+ ██║     ██║   ██║██║     ██║       ██╔══██║██║   ██║   ██║   ██║   ██║    ██╔══██║██╔══╝  ██╔═██╗     ██║     ██╔══██║██╔══╝  ██║     ██╔═██╗ 
+ ╚██████╗╚██████╔╝███████╗██║       ██║  ██║╚██████╔╝   ██║   ╚██████╔╝    ██║  ██║██║     ██║  ██╗    ╚██████╗██║  ██║███████╗╚██████╗██║  ██╗
+  ╚═════╝ ╚═════╝ ╚══════╝╚═╝       ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝     ╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝     ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝
+                                                      Time to fake your stams
+
+                                                   Logged in as: {client.user}                                                                                            
+    ''')
 @client.command()
 async def afk(ctx):
     await ctx.message.delete()
-    x = 100
+    x = (int(input("Enter the amount: ")))
     while True:
         time.sleep(0.4)
         await ctx.send(x)
@@ -20,7 +38,7 @@ async def afk(ctx):
         if x == 0:
             break
 
-        for x in range(100, 1):
+        for x in range(x, 1):
             
 
             await ctx.send(x)
