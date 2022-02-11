@@ -8,6 +8,7 @@ from colorama  import Fore
 import os
 
 client = commands.Bot('>', self_bot = True)
+os.system("mode 150, 30")
 with open('config.json') as f:
     config = json.load(f)
     token = config.get('token')
