@@ -25,7 +25,6 @@ async def on_ready():
  ╚██████╗╚██████╔╝███████╗██║       ██║  ██║╚██████╔╝   ██║   ╚██████╔╝    ██║  ██║██║     ██║  ██╗    ╚██████╗██║  ██║███████╗╚██████╗██║  ██╗
   ╚═════╝ ╚═════╝ ╚══════╝╚═╝       ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝     ╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝     ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝
                                                       Time to fake your stams
-                                                      usage: >afk
 
                                                    Logged in as: {client.user}                                                                                            
     ''')
@@ -33,8 +32,9 @@ async def on_ready():
 async def afk(ctx):
     await ctx.message.delete()
     x = (int(input("Enter the amount: ")))
+    h = (int(input("Enter the time s/ms: ")))
     while True:
-        time.sleep(0.4)
+        time.sleep(h)
         await ctx.send(x)
         x -= 1
         if x == 0:
